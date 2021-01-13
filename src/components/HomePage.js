@@ -4,9 +4,22 @@ import './HomePage.css';
 import Card from './Card';
 
 export default function HomePage({ posts }) {
-  // if NULL (tek učitana stranica)
+  // if NULL (tek učitana stranica, potreban API poziv)
   if (!posts) {
-    return <div className="home-page">Loading...</div>;
+    return (
+      <div className="home-page loader">
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
   }
 
   const allPosts = posts.map((post) => (
