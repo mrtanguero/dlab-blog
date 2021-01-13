@@ -12,6 +12,7 @@ export default function HomePage({ posts }) {
   const allPosts = posts.map((post) => (
     <Card key={post.postId} options={post} />
   ));
+
   // Ako ima postova
   if (posts.length) {
     return <div className="home-page">{allPosts}</div>;

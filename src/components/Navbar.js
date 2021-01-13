@@ -13,7 +13,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link className="btn" to="/new">
-            New Post
+            Dodaj post
           </Link>
         </li>
       </ul>

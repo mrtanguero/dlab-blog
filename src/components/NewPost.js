@@ -64,7 +64,7 @@ class NewPost extends Component {
           value={this.state.postContent}
           onChange={(e) => this.setState({ postContent: e.target.value })}
         />
-        <button onClick={this.clickButtonHandler}>Submit</button>
+        <button onClick={this.clickButtonHandler}>Dodaj</button>
       </div>
     );
   }

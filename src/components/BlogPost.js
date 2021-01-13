@@ -14,7 +14,7 @@ export default function BlogPost({ posts }) {
           <h2>{post.postTitle}</h2>
         </div>
         <h4>
-          <span>By:</span> {post.author}
+          piše: <span>{post.author} </span>
         </h4>
         <p>{post.postContent}</p>
       </div>
