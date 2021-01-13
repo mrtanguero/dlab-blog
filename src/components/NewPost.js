@@ -32,13 +32,14 @@ class NewPost extends Component {
         <input
           type="text"
           id="post-title"
+          maxLength="20"
           placeholder="Enter the title of the post"
           value={this.state.postTitle}
           onChange={(e) => this.setState({ postTitle: e.target.value })}
         />
         <label htmlFor="img-url">Image URL</label>
         <input
-          type="text"
+          type="url"
           id="img-url"
           placeholder="Enter the url of the image"
           value={this.state.imgUrl}
@@ -48,6 +49,7 @@ class NewPost extends Component {
         <input
           type="text"
           id="author"
+          maxLength="20"
           placeholder="Enter the name of the author"
           value={this.state.author}
           onChange={(e) => this.setState({ author: e.target.value })}
@@ -56,6 +58,8 @@ class NewPost extends Component {
         <textarea
           type="text"
           id="post-content"
+          rows="10"
+          maxLength="250"
           placeholder="Enter the content of the post"
           value={this.state.postContent}
           onChange={(e) => this.setState({ postContent: e.target.value })}

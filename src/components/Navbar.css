@@ -32,10 +32,28 @@ li img {
 }
 
 li:not(:first-child) {
-  margin-bottom: -5px;
+  margin-bottom: -8px;
 }
 
 nav a:link,
 nav a:visited {
   text-decoration: none;
+}
+
+nav a.btn:link,
+nav a.btn:visited {
+  background-color: rgb(167, 16, 167);
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: white;
+}
+
+nav a.btn:hover {
+  background-color: rgb(180, 93, 180);
+
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+nav a.btn:active {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0);
 }

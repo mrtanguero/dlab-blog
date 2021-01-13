@@ -2,4 +2,4 @@
 
 This app was part of homework for DevelopersLab's React course:
 
-Live demo:
+Live demo: https://dlab-blog.netlify.app/

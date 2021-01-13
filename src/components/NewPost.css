@@ -23,3 +23,32 @@
 .new-post label {
   margin-bottom: 3px;
 }
+
+.new-post button {
+  width: 200px;
+
+  background-color: rgb(167, 16, 167);
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+
+  outline: none;
+
+  font-size: 1.2em;
+  color: white;
+
+  align-self: center;
+  transition: all 0.2s;
+}
+
+.new-post button:hover {
+  cursor: pointer;
+  background-color: rgb(180, 93, 180);
+
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.new-post button:active {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0);
+}

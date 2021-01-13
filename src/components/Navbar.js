@@ -12,7 +12,9 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/new">New Post</Link>
+          <Link className="btn" to="/new">
+            New Post
+          </Link>
         </li>
       </ul>
     </nav>
