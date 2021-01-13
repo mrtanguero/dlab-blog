@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import './NewPost.css';
 
 class NewPost extends Component {
   state = {
@@ -26,7 +27,7 @@ class NewPost extends Component {
 
   render() {
     return (
-      <div>
+      <div className="new-post">
         <label htmlFor="post-title">Title</label>
         <input
           type="text"
@@ -35,7 +36,7 @@ class NewPost extends Component {
           value={this.state.postTitle}
           onChange={(e) => this.setState({ postTitle: e.target.value })}
         />
-        <label htmlFor="img-url">Image url</label>
+        <label htmlFor="img-url">Image URL</label>
         <input
           type="text"
           id="img-url"

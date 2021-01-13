@@ -7,10 +7,9 @@ export default function Navbar() {
     <nav>
       <ul>
         <li>
-          <Link to="/">Logo</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <img src={require('../img/logo.png').default} alt="Logo" />
+          </Link>
         </li>
         <li>
           <Link to="/new">New Post</Link>

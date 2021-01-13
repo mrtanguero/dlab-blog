@@ -6,7 +6,7 @@ export default function BlogPost({ posts }) {
   const post = posts.filter((post) => post.postId === Number(postId))[0];
 
   return (
-    <div>
+    <div className="single-post">
       <img src={post.imgUrl} alt={`Post ${postId}`} />
       <h1>Blog post {postId}</h1>
       <h3>{post.author}</h3>
