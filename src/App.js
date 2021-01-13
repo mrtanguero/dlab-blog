@@ -72,7 +72,10 @@ export default class App extends Component {
           <Route path="/new">
             <NewPost nextId={this.getNextId()} onSubmit={this.addNewPost} />
           </Route>
-          <Route path="/:postId" children={<BlogPost />} />
+          <Route
+            path="/:postId"
+            children={<BlogPost posts={this.state.posts} />}
+          />
         </Switch>
       </BrowserRouter>
     );
