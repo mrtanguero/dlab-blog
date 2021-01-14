@@ -27,6 +27,7 @@ export default function HomePage({ posts }) {
     .reverse()
     .map((post) => <Card key={post.postId} options={post} />);
 
+  window.scrollTo(0, 0);
   // Ako ima postova
   if (posts.length) {
     return <div className="home-page">{allPosts}</div>;
