@@ -5,6 +5,7 @@ import './BlogPost.css';
 export default function BlogPost({ posts }) {
   let { postId } = useParams();
   const post = posts.filter((post) => post.postId === Number(postId))[0];
+  window.scrollTo(0, 0);
 
   return (
     <div className="blog-post">
