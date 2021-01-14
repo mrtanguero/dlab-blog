@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Card from './Card';
+import _ from 'lodash';
 
 export default function HomePage({ posts }) {
   // if NULL (tek učitana stranica, potreban API poziv)
@@ -22,7 +23,7 @@ export default function HomePage({ posts }) {
     );
   }
 
-  const allPosts = posts
+  const allPosts = _.cloneDeep(posts)
     .reverse()
     .map((post) => <Card key={post.postId} options={post} />);
 
