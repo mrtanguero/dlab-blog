@@ -22,9 +22,9 @@ export default function HomePage({ posts }) {
     );
   }
 
-  const allPosts = posts.map((post) => (
-    <Card key={post.postId} options={post} />
-  ));
+  const allPosts = posts
+    .reverse()
+    .map((post) => <Card key={post.postId} options={post} />);
 
   // Ako ima postova
   if (posts.length) {
