@@ -1,6 +1,6 @@
 .blog-post {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 
   background-color: rgb(204, 195, 211);
 
@@ -60,4 +60,29 @@
 .blog-post__content p {
   white-space: pre-wrap;
   margin: 0px 10% 30px;
+}
+
+@media only screen and (max-width: 670px) {
+  .blog-post__header h2 {
+    font-size: 2rem;
+  }
+
+  .blog-post__header {
+    padding: 0 75px;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .blog-post__content img,
+  .blog-post__header {
+    height: 150px;
+  }
+
+  .blog-post__header {
+    padding: 0 50px;
+  }
+
+  .blog-post__header h2 {
+    font-size: 1.5rem;
+  }
 }

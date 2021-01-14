@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './NewPost.css';
 
+const validateText = (string, maxLength) => {
+  return string.trim().length > 0 && string.trim().length <= maxLength;
+};
 class NewPost extends Component {
   state = {
     postId: null,
@@ -11,7 +14,44 @@ class NewPost extends Component {
     postContent: '',
   };
 
+  validateTitle = () => {
+    return validateText(this.state.postTitle, 20);
+  };
+
+  validateAuthor = () => {
+    return validateText(this.state.author, 20);
+  };
+
+  validateContent = () => {
+    return validateText(this.state.postContent, 200);
+  };
+
+  validateUrl = () => {
+    const pattern = new RegExp(
+      '^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$',
+      'i'
+    ); // fragment locator
+    return !!pattern.test(this.state.imgUrl);
+  };
+
+  validateForm = () => {
+    return [
+      this.validateTitle(),
+      this.validateUrl(),
+      this.validateAuthor(),
+      this.validateContent(),
+    ].every((el) => el);
+  };
+
   clickButtonHandler = () => {
+    // Ako ne prođe validaciju, ne submituj
+    if (!this.validateForm()) return;
+
     this.setState({ postId: this.props.nextId }, () => {
       this.props.onSubmit(this.state);
       this.setState({
@@ -30,15 +70,16 @@ class NewPost extends Component {
       <div className="new-post">
         <label htmlFor="post-title">Title</label>
         <input
+          className={this.validateTitle() ? 'valid' : 'not-valid'}
           type="text"
           id="post-title"
-          maxLength="20"
           placeholder="Enter the title of the post"
           value={this.state.postTitle}
           onChange={(e) => this.setState({ postTitle: e.target.value })}
         />
         <label htmlFor="img-url">Image URL</label>
         <input
+          className={this.validateUrl() ? 'valid' : 'not-valid'}
           type="url"
           id="img-url"
           placeholder="Enter the url of the image"
@@ -47,19 +88,19 @@ class NewPost extends Component {
         />
         <label htmlFor="author">Author</label>
         <input
+          className={this.validateAuthor() ? 'valid' : 'not-valid'}
           type="text"
           id="author"
-          maxLength="20"
           placeholder="Enter the name of the author"
           value={this.state.author}
           onChange={(e) => this.setState({ author: e.target.value })}
         />
         <label htmlFor="post-content">Content</label>
         <textarea
+          className={this.validateContent() ? 'valid' : 'not-valid'}
           type="text"
           id="post-content"
           rows="10"
-          maxLength="250"
           placeholder="Enter the content of the post"
           value={this.state.postContent}
           onChange={(e) => this.setState({ postContent: e.target.value })}
