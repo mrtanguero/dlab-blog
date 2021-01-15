@@ -5,7 +5,7 @@ import Card from './Card';
 import _ from 'lodash';
 
 export default function HomePage({ posts }) {
-  // if NULL (tek učitana stranica, potreban API poziv)
+  // if NULL (tek učitana stranica, još nema podatke)
   if (!posts) {
     return (
       <div className="home-page loader">

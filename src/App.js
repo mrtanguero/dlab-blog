@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { jsonBlob } from './apis/jsonBlob';
+import { BLOB_ID } from './config';
 import _ from 'lodash';
 
 import Navbar from './components/Navbar';
@@ -18,11 +20,8 @@ export default class App extends Component {
 
   getPosts = async () => {
     try {
-      const response = await fetch(
-        'https://jsonblob.com/api/jsonBlob/5430a7e6-54e9-11eb-a469-1f42ecf30f51'
-      );
-      const data = await response.json();
-      this.setState({ posts: data }, () => console.log(this.state));
+      const { data } = await jsonBlob.get(`/${BLOB_ID}`);
+      this.setState({ posts: data });
     } catch (error) {
       console.error('There was an error while getting posts: ', error.message);
     }
@@ -30,23 +29,10 @@ export default class App extends Component {
 
   addNewPost = (obj) => {
     const newPosts = _.cloneDeep(this.state.posts);
-    console.log(newPosts);
     newPosts.push(obj);
-    this.setState({ posts: newPosts }, async () => {
+    this.setState({ posts: newPosts }, () => {
       try {
-        console.log(JSON.stringify(obj));
-        const response = await fetch(
-          'https://jsonblob.com/api/jsonBlob/5430a7e6-54e9-11eb-a469-1f42ecf30f51',
-          {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newPosts),
-          }
-        );
-        const data = await response.json();
-        console.log(data);
+        jsonBlob.put(`/${BLOB_ID}`, newPosts);
       } catch (error) {
         console.error('Greška prilikom slanja posta:', error.message);
       }
