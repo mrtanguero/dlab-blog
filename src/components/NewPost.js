@@ -68,40 +68,40 @@ class NewPost extends Component {
   render() {
     return (
       <div className="new-post">
-        <label htmlFor="post-title">Title</label>
+        <label htmlFor="post-title">Naziv posta</label>
         <input
           className={this.validateTitle() ? 'valid' : 'not-valid'}
           type="text"
           id="post-title"
-          placeholder="Enter the title of the post"
+          placeholder="Unesite naziv posta"
           value={this.state.postTitle}
           onChange={(e) => this.setState({ postTitle: e.target.value })}
         />
-        <label htmlFor="img-url">Image URL</label>
+        <label htmlFor="img-url">URL naslovne fotografije</label>
         <input
           className={this.validateUrl() ? 'valid' : 'not-valid'}
           type="url"
           id="img-url"
-          placeholder="Enter the url of the image"
+          placeholder="Unesite URL naslovne fotografije"
           value={this.state.imgUrl}
           onChange={(e) => this.setState({ imgUrl: e.target.value })}
         />
-        <label htmlFor="author">Author</label>
+        <label htmlFor="author">Autor</label>
         <input
           className={this.validateAuthor() ? 'valid' : 'not-valid'}
           type="text"
           id="author"
-          placeholder="Enter the name of the author"
+          placeholder="Unesite ime autora"
           value={this.state.author}
           onChange={(e) => this.setState({ author: e.target.value })}
         />
-        <label htmlFor="post-content">Content</label>
+        <label htmlFor="post-content">Sadržaj</label>
         <textarea
           className={this.validateContent() ? 'valid' : 'not-valid'}
           type="text"
           id="post-content"
           rows="10"
-          placeholder="Enter the content of the post"
+          placeholder="Unesite sadržaj posta"
           value={this.state.postContent}
           onChange={(e) => this.setState({ postContent: e.target.value })}
         />
